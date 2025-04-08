@@ -7,7 +7,8 @@
 # DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 # 
 # Copyright (c) 2014,2024 Oracle and/or its affiliates.
-# 
+#
+# sh buildContainerImage.sh -v 19.3.0 -t oracle-none-cdb:19.3.0.0 -e
 
 usage() {
   cat << EOF

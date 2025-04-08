@@ -44,14 +44,14 @@ function setupTnsnames {
 
   # tnsnames.ora
   echo "$ORACLE_SID=localhost:1521/$ORACLE_SID" > "$ORACLE_HOME"/network/admin/tnsnames.ora
-  echo "$ORACLE_PDB= 
-(DESCRIPTION = 
-  (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
-  (CONNECT_DATA =
-    (SERVER = DEDICATED)
-    (SERVICE_NAME = $ORACLE_PDB)
-  )
-)" >> "$ORACLE_HOME"/network/admin/tnsnames.ora
+#  echo "$ORACLE_PDB=
+#(DESCRIPTION =
+#  (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
+#  (CONNECT_DATA =
+#    (SERVER = DEDICATED)
+#    (SERVICE_NAME = $ORACLE_PDB)
+#  )
+#)" >> "$ORACLE_HOME"/network/admin/tnsnames.ora
 
 }
 
@@ -213,7 +213,6 @@ setupTnsnames;
 sqlplus / as sysdba << EOF
    ALTER SYSTEM SET control_files='$ORACLE_BASE/oradata/$ORACLE_SID/control01.ctl' scope=spfile;
    ALTER SYSTEM SET local_listener='';
-   ALTER PLUGGABLE DATABASE $ORACLE_PDB SAVE STATE;
    EXEC DBMS_XDB_CONFIG.SETGLOBALPORTENABLED (TRUE);
 
    ALTER SESSION SET "_oracle_script" = true;
