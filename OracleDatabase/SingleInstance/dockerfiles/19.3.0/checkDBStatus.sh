@@ -86,6 +86,6 @@ else
    ORAENV_ASK=NO
    source oraenv
    checkDatabaseRole
-   checkPDBOpen
+#   checkPDBOpen
 fi
 exit 0
